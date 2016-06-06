@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'programmer/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <div class="applicant">
+        {% if lookforjob.published_date %}
+            <div class="date">
+                {{ lookforjob.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'lookforjob_edit' pk=lookforjob.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+
+        <h1>{{ lookforjob.title }}</h1>
+        <p>{{ lookforjob.text|linebreaks }}</p>
+    </div>
+{% endblock %}
+
+</body>
+</html>
